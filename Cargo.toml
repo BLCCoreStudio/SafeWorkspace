@@ -1,0 +1,10 @@
+[package]
+name = "safeworkspace"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Linux-first restricted workspaces for AI coding agents"
+license = "MIT"
+repository = "https://github.com/BLCCoreStudio/SafeWorkspace"
+
+[dependencies]
