@@ -17,7 +17,10 @@ fn canonical_workspace(path: &str) -> Result<String, String> {
         .canonicalize()
         .map_err(|error| format!("failed to resolve workspace '{path}': {error}"))?;
     if !canonical.is_dir() {
-        return Err(format!("workspace '{}' is not a directory", canonical.display()));
+        return Err(format!(
+            "workspace '{}' is not a directory",
+            canonical.display()
+        ));
     }
     canonical
         .to_str()
@@ -174,9 +177,9 @@ mod tests {
         let command = vec!["sh".to_owned(), "-c".to_owned(), "pwd".to_owned()];
         let args = sandbox_args("/tmp/project", &command);
         assert!(args.iter().any(|arg| arg == "--unshare-all"));
-        assert!(args.windows(3).any(|window| {
-            window == ["--bind", "/tmp/project", "/workspace"]
-        }));
+        assert!(args
+            .windows(3)
+            .any(|window| { window == ["--bind", "/tmp/project", "/workspace"] }));
     }
 
     #[test]
