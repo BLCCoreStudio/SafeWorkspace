@@ -1,10 +1,10 @@
 # SafeWorkspace
 
-**Linux-first restricted workspaces for running agent-assisted commands with explicit OS-level boundaries.**
+**Focused Linux sandbox research for agent-assisted development.**
 
-> **Status:** development preview. No stable release has been published.
+> **Companion research status:** the current bubblewrap isolation direction from SafeWorkspace has been integrated into [AgentGuard](https://github.com/BLCCoreStudio/AgentGuard). This repository remains public as a focused implementation reference and development history; new integrated runtime-policy and isolation work targets AgentGuard.
 
-SafeWorkspace uses Linux **bubblewrap (`bwrap`)** as its current isolation backend. It does not pretend that application prompts alone are a security boundary, and it refuses to run the sandbox command when the required backend is unavailable.
+SafeWorkspace explores Linux-first restricted workspaces for commands using **bubblewrap (`bwrap`)**. It does not pretend that application prompts alone are a security boundary, and it refuses to run the sandbox command when the required backend is unavailable.
 
 ## Current preview
 
@@ -34,6 +34,12 @@ The current backend:
 - uses a private temporary `/tmp`
 - unshares Linux namespaces, including network access, by default
 - performs no privilege escalation
+
+## Why this repository still exists
+
+SafeWorkspace is intentionally retained rather than deleted or republished. It preserves the smaller isolation experiment that informed AgentGuard's integrated sandbox mode, keeps existing links and commit history valid, and provides a narrow place to understand the bubblewrap boundary without the rest of AgentGuard's policy logic.
+
+For active integration work, use **AgentGuard**.
 
 ## Requirements and limitations
 
